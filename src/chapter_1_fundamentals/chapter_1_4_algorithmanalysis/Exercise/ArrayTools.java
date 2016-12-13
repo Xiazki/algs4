@@ -89,4 +89,7 @@ public class ArrayTools {
         }
         return low;
     }
+    public static int findPeakElemeent(int[][] arrays){
+        return -1;
+    }
 }
