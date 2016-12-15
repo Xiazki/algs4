@@ -21,4 +21,6 @@ public class ArrayToolsTest {
         int[] data = {-4,-5,-2,-1,4,3,1,2};
         System.out.println(ArrayTools.findPeakElement(data));
     }
+
+
 }
