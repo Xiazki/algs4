@@ -30,6 +30,8 @@ public class BitonicMax {
     /**
      * 双调数组是否包含key
      * 比较次数最多3lgN
+     *
+     * 找到最大(lgN)的然后分别进行二分查找(lgN)
      * @param array
      * @param key
      * @return
