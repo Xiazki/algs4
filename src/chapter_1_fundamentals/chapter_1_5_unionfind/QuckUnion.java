@@ -44,7 +44,7 @@ public class QuckUnion extends UF {
         if (pid == qid){
             return;
         }
-        id[p] = qid;
+        id[pid] = id[qid];
         count--;
     }
 }

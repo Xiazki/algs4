@@ -13,7 +13,7 @@ public class WeightQuckUnion extends UF {
         super(N);
         sz = new int[N];
         for (int i = 0; i < N; i++) {
-            sz[i] = i;
+            sz[i] = 1;
         }
     }
 
@@ -24,9 +24,17 @@ public class WeightQuckUnion extends UF {
 
     @Override
     public int find(int p) {
+        int temp1 = p,temp2;
         while (p != id[p]) {
             p = id[p];
         }
+        //路径压缩
+        while(temp1!=id[p]){
+            temp2 = temp1;
+            temp1 = id[temp1];
+            id[temp2] = id[p];
+        }
+
         return p;
     }
 
@@ -42,10 +50,13 @@ public class WeightQuckUnion extends UF {
         if (pid == qid) {
             return;
         }
-        if (sz[p] < sz[q]) {
-            id[q] = pid;
+        if (sz[pid] < sz[qid]) {
+            id[pid] = qid;
+            sz[qid]+=sz[pid];
+
         } else {
-            id[p] = qid;
+            id[qid] = pid;
+            sz[pid]+= sz[qid];
         }
         count--;
     }
